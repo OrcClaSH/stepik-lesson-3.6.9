@@ -8,13 +8,15 @@ def test_contains_add_button_to_basket(browser):
     browser.get(
         'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
     )
-    # Нахождение кнопки "Добавить в корзину"
+    # Нахождение кнопки "Добавить в корзину", на её основе выводить assert 
+    # не будем, пойдем чуть далее
     button_basket = WebDriverWait(browser, 5).until(
         EC.element_to_be_clickable(
             (By.CSS_SELECTOR, '.btn.btn-lg.btn-primary.btn-add-to-basket')
         )
     )
     # Вывод текста на кнопке
+    #  - для самопроверки переключения представления языка на web ресурсе
     print('button_text: ', button_basket.text)
     # Дополнительная проверка в виде перехода по кнопке
     button_basket.click()
